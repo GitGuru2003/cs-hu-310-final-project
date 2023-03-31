@@ -52,6 +52,12 @@ CREATE TABLE IF NOT EXISTS class_sections (
   FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id),
   FOREIGN KEY (term_id) REFERENCES terms(term_id)
 );
+CREATE TABLE IF NOT EXISTS grades (
+  grade_id INT NOT NULL AUTO_INCREMENT,
+  letter_grade CHAR(2) NOT NULL,
+  PRIMARY KEY (grade_id)
+);
+
 
 
 
