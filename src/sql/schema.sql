@@ -70,6 +70,28 @@ CREATE TABLE IF NOT EXISTS class_registrations (
 );
 
 
+DELIMITER $$
+CREATE FUNCTION convert_to_grade_point(letter_grade CHAR(2))
+RETURNS INT DETERMINISTIC
+BEGIN
+  DECLARE grade_point INT;
+  
+  IF letter_grade IS NULL THEN
+    RETURN NULL;
+  END IF;
+  
+  CASE letter_grade
+    WHEN 'A' THEN SET grade_point = 4;
+    WHEN 'B' THEN SET grade_point = 3;
+    WHEN 'C' THEN SET grade_point = 2;
+    WHEN 'D' THEN SET grade_point = 1;
+    WHEN 'F' THEN SET grade_point = 0;
+    ELSE SET grade_point = NULL;
+  END CASE;
+  
+  RETURN grade_point;
+END$$
+DELIMITER ;
 
 
 
