@@ -1,6 +1,4 @@
-/*
-  Put all table create statements in this file as well as any UDFs or stored
-  procedures.
+
 CREATE DATABASE IF NOT EXISTS cs_hu_310_final_project;
 USE cs_hu_310_final_project;
 DROP TABLE IF EXISTS class_registrations;
@@ -26,5 +24,4 @@ CREATE TABLE IF NOT EXISTS students(
  birthdate DATE,
  PRIMARY KEY (student_id)
 );
-  NOTE: This file must be able to run repetitively without any errors
-*/
+
