@@ -57,6 +57,29 @@ CREATE TABLE IF NOT EXISTS grades (
   letter_grade CHAR(2) NOT NULL,
   PRIMARY KEY (grade_id)
 );
+CREATE TABLE IF NOT EXISTS class_registrations (
+  class_registrations_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  class_section_id INT NOT NULL,
+  student_id INT NOT NULL,
+  grade_id INT,
+  signup_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY unique_registration (class_section_id, student_id),
+  FOREIGN KEY (class_section_id) REFERENCES class_sections(class_section_id),
+  FOREIGN KEY (student_id) REFERENCES students(student_id),
+  FOREIGN KEY (grade_id) REFERENCES grades(grade_id)
+);
+CREATE TABLE IF NOT EXISTS class_registrations (
+  class_registrations_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  class_section_id INT NOT NULL,
+  student_id INT NOT NULL,
+  grade_id INT,
+  signup_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY unique_registration (class_section_id, student_id),
+  FOREIGN KEY (class_section_id) REFERENCES class_sections(class_section_id),
+  FOREIGN KEY (student_id) REFERENCES students(student_id),
+  FOREIGN KEY (grade_id) REFERENCES grades(grade_id)
+);
+
 
 
 
