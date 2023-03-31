@@ -24,4 +24,9 @@ CREATE TABLE IF NOT EXISTS students(
  birthdate DATE,
  PRIMARY KEY (student_id)
 );
+CREATE TABLE IF NOT EXISTS academic_titles (
+  academic_title_id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  PRIMARY KEY (academic_title_id)
+);
 
