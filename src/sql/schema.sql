@@ -37,5 +37,11 @@ CREATE TABLE IF NOT EXISTS instructors (
   PRIMARY KEY (instructor_id),
   FOREIGN KEY (academic_title_id) REFERENCES academic_titles(academic_title_id)
 );
+CREATE TABLE IF NOT EXISTS terms (
+  term_id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(80) NOT NULL,
+  PRIMARY KEY (term_id)
+);
+
 
 
