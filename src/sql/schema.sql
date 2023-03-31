@@ -29,4 +29,13 @@ CREATE TABLE IF NOT EXISTS academic_titles (
   title VARCHAR(255) NOT NULL,
   PRIMARY KEY (academic_title_id)
 );
+CREATE TABLE IF NOT EXISTS instructors (
+  instructor_id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(80) NOT NULL,
+  last_name VARCHAR(80) NOT NULL,
+  academic_title_id INT,
+  PRIMARY KEY (instructor_id),
+  FOREIGN KEY (academic_title_id) REFERENCES academic_titles(academic_title_id)
+);
+
 
