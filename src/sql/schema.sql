@@ -42,6 +42,16 @@ CREATE TABLE IF NOT EXISTS terms (
   name VARCHAR(80) NOT NULL,
   PRIMARY KEY (term_id)
 );
+CREATE TABLE IF NOT EXISTS class_sections (
+  class_section_id INT NOT NULL AUTO_INCREMENT,
+  class_id INT NOT NULL,
+  instructor_id INT NOT NULL,
+  term_id INT NOT NULL,
+  PRIMARY KEY (class_section_id),
+  FOREIGN KEY (class_id) REFERENCES classes(class_id),
+  FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id),
+  FOREIGN KEY (term_id) REFERENCES terms(term_id)
+);
 
 
 
