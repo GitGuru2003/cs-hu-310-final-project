@@ -81,13 +81,15 @@ JOIN classes ON class_sections.class_id = classes.class_id
 JOIN terms ON class_sections.term_id = terms.term_id
 JOIN instructors ON class_sections.instructor_id = instructors.instructor_id;
 
--- 7 (try debugging this)
+-- 7 
 SELECT
-  classes.code,
-  classes.name,
-  COUNT(class_registrations.class_registration_id) AS students_enrolled,
-  classes.maximum_students - COUNT(class_registrations.class_registration_id) AS space_remaining
+classes.code,
+classes.name,
+terms.name AS term_name,
+COUNT(class_registrations.class_registration_id) AS students_enrolled,
+classes.maximum_students - COUNT(class_registrations.class_registration_id) AS space_remaining
 FROM class_sections
 JOIN classes ON class_sections.class_id = classes.class_id
+JOIN terms ON class_sections.term_id = terms.term_id
 LEFT JOIN class_registrations ON class_sections.class_section_id = class_registrations.class_section_id
-GROUP BY classes.class_id, classes.name, classes.maximum_students;
+GROUP BY classes.class_id, classes.name, classes.maximum_students, terms.term_id, terms.name;
